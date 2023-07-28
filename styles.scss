@@ -3,6 +3,17 @@ $bgcolor:  whitesmoke;
 $navh: 100px;
 $bgh: 80vh;
 $hovercolor: tomato;
+$mediacolor: greenyellow;
+
+
+@mixin display(){
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
 *{
    
     font-family: 'Poppins', sans-serif;
@@ -12,12 +23,13 @@ $hovercolor: tomato;
 header{
     nav{
         height: $navh;
-        display: flex;
-        background-color: $bgcolor;
-        justify-content: space-around;
-        align-items: center;
-        box-shadow: 5px 5px 5px 5px gray;
+        @include display();
+        background-color: #ffd700;
+        // box-shadow: 5px 5px 5px 5px gray;
         flex-direction: row;
+        position: static;
+        left: 0;
+        top: 0;
         // flex-wrap: wrap;
 
         // first child
@@ -40,6 +52,18 @@ header{
                color: $hovercolor;
                text-decoration: underline;
             }
+
+            @media screen and (max-width: 767px) {
+                /* CSS styles for mobile phones (portrait) */
+                font-size: 12px;
+                margin-right: 10px;
+                display: none;
+              }
+
+              @media screen and (min-width: 1024px) and (max-width: 1279px) {
+                /* CSS styles for tablets and small laptops (landscape) */
+                color: $mediacolor
+              }
           }
         }
         //third child
